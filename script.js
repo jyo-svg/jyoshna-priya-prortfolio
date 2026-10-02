@@ -65,3 +65,32 @@ themeToggle.addEventListener("click", function () {
         themeToggle.setAttribute("aria-label", "Switch to light theme");
     }
 });
+// ===============================
+// DARK / LIGHT THEME TOGGLE
+// ===============================
+
+const themeToggle = document.getElementById("themeToggle");
+
+if (themeToggle) {
+    const themeIcon = themeToggle.querySelector("i");
+
+    themeToggle.addEventListener("click", function () {
+
+        const html = document.documentElement;
+
+        if (html.getAttribute("data-theme") === "dark") {
+            html.setAttribute("data-theme", "light");
+
+            if (themeIcon) {
+                themeIcon.className = "bi bi-moon-stars";
+            }
+
+        } else {
+            html.setAttribute("data-theme", "dark");
+
+            if (themeIcon) {
+                themeIcon.className = "bi bi-sun";
+            }
+        }
+    });
+}
