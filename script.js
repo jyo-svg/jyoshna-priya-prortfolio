@@ -46,3 +46,22 @@
     if(menu.classList.contains('show') && window.bootstrap){new bootstrap.Collapse(menu).hide();}
   }));
 })();
+// Dark / Light Mode Toggle
+const themeToggle = document.getElementById("themeToggle");
+
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const html = document.documentElement;
+    const isDark = html.getAttribute("data-theme") === "dark";
+
+    if (isDark) {
+      html.removeAttribute("data-theme");
+      themeToggle.innerHTML = "🌙";
+      themeToggle.setAttribute("aria-label", "Switch to dark mode");
+    } else {
+      html.setAttribute("data-theme", "dark");
+      themeToggle.innerHTML = "☀️";
+      themeToggle.setAttribute("aria-label", "Switch to light mode");
+    }
+  });
+}
