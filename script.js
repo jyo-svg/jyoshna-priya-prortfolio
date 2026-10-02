@@ -64,4 +64,4 @@ if (themeToggle) {
       themeToggle.setAttribute("aria-label", "Switch to light mode");
     }
   });
-}
+ }
