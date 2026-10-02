@@ -46,8 +46,22 @@
     if(menu.classList.contains('show') && window.bootstrap){new bootstrap.Collapse(menu).hide();}
   }));
 })();
+// Dark / Light Theme Toggle
 const themeToggle = document.getElementById("themeToggle");
+const themeIcon = themeToggle.querySelector("i");
 
 themeToggle.addEventListener("click", function () {
-    document.documentElement.setAttribute("data-theme", "dark");
+    const html = document.documentElement;
+
+    if (html.getAttribute("data-theme") === "dark") {
+        // Change to light mode
+        html.setAttribute("data-theme", "light");
+        themeIcon.className = "bi bi-moon-stars";
+        themeToggle.setAttribute("aria-label", "Switch to dark theme");
+    } else {
+        // Change to dark mode
+        html.setAttribute("data-theme", "dark");
+        themeIcon.className = "bi bi-sun";
+        themeToggle.setAttribute("aria-label", "Switch to light theme");
+    }
 });
